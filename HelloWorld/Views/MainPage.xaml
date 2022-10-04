@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="HelloWorld.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorld"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <RelativePanel>
+        <StackPanel x:Name="Customer" Margin="20">
+            <TextBox x:Name="CustomerName" Header= "Customer Name" Margin="0,24,0,0" HorizontalAlignment="Left" />
+            <TextBox x:Name="Address" Header="Address" PlaceholderText="Address" Margin="0,24,0,0" HorizontalAlignment="Left" />
+            <TextBox x:Name="Address2" Margin="0,24,0,0" PlaceholderText="Address 2" HorizontalAlignment="Left" />
+            <RelativePanel>
+                <TextBox x:Name="City" PlaceholderText="City" Margin="0,24,0,0" HorizontalAlignment="Left" />
+                <ComboBox x:Name="State" PlaceholderText="State" Margin="24,24,0,0" RelativePanel.RightOf="City">
+                    <!--List of valid states-->
+                </ComboBox>
+            </RelativePanel>
+        </StackPanel>
+        <StackPanel x:Name="Associate" Margin="20" RelativePanel.Below="Customer">
+            <TextBox x:Name="AssociateName" Header= "Associate" Margin="0,24,0,0" HorizontalAlignment="Left" />
+            <DatePicker x:Name="TargetInstallDate" Header="Target install Date" HorizontalAlignment="Left" Margin="0,24,0,0"></DatePicker>
+            <TimePicker x:Name="InstallTime" Header="Install Time" HorizontalAlignment="Left" Margin="0,24,0,0"></TimePicker>
+        </StackPanel>
+        <StackPanel x:Name="Save" Orientation="Horizontal" RelativePanel.Below="Associate">
+            <Button Content="Save" Margin="24" />
+            <Button Content="Cancel" Margin="24" />
+            <Button Content="Hello World!" Margin="24" Click="Button_Click"/>
+        </StackPanel>
+    </RelativePanel>
+</Page>

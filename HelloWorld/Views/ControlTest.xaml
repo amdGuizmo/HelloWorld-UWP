@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="HelloWorld.ControlTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorld"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <!--<SolidColorBrush Color="Blue" x:Key="myBrush"></SolidColorBrush>-->
+        <Style x:Key = "myButtonStyle" TargetType = "Button">
+            <Setter Property = "Height" Value = "30"/>
+            <Setter Property = "Width" Value = "80"/>
+            <Setter Property = "Foreground" Value = "Blue"/>
+            <Setter Property = "FontSize" Value = "12"/>
+            <Setter Property = "Margin" Value = "10"/>
+        </Style>
+    </Page.Resources>
+
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ToggleSwitch x:Name="toggleswitch1" IsOn="False"/>
+            <ProgressRing IsActive="{x:Bind toggleswitch1.IsOn, Mode=OneWay}" Width="130"/>
+        </StackPanel>
+        <StackPanel>
+            <ToggleSwitch x:Name="toggleswitch2" IsOn="False" Toggled="ToggleSwitch2_Toggled"/>
+            <ProgressBar x:Name="progressbar1" Margin="10" Width="260" IsIndeterminate="True"/>
+        </StackPanel>
+        <!--<StackPanel>
+            <TextBlock Foreground = "{StaticResource myBrush}" 
+         Text = "First Name" Width = "100" Margin = "10" />
+            <TextBlock Foreground = "{StaticResource myBrush}" 
+         Text = "Last Name" Width = "100" Margin = "10" />
+        </StackPanel>-->
+        <!--<StackPanel>
+            <AppBar>
+                <AppBarButton></AppBarButton>
+                <AppBarToggleButton></AppBarToggleButton>
+                <AppBarSeparator></AppBarSeparator>
+                <AppBarElementContainer></AppBarElementContainer>
+                <AppBarClosedDisplayMode></AppBarClosedDisplayMode>
+            </AppBar>
+        </StackPanel>-->
+        <StackPanel>
+            <Button Content = "Button1" Style = "{StaticResource myButtonStyle}"/>
+            <Button Content = "Button2" Style = "{StaticResource myButtonStyle}"/>
+            <Button Content = "Button3" Style = "{StaticResource myButtonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="3">
+            <RatingControl x:Name="MyRating" ValueChanged="RatingChanged" IsReadOnly="False"/>
+            <Slider x:Name="valumeSlider" Header="Volume" Width="200" ValueChanged="Slider_ValueChanged"/>
+            <TextBlock Text="Un texto"/>
+            <TextBox Text="{Binding Variable, Mode=TwoWay}"/>
+        </StackPanel>
+
+    </StackPanel>
+</Page>
